@@ -1,0 +1,108 @@
+name: catex
+description: A package that allows to draw TeX equations inline as a widget using only Flutter.
+version: 0.0.1
+author: creativecreatorormaybenot <creativecreatorormaybenot@gmail.com>
+homepage: # todo
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  pedantic: ^1.8.0 # https://pub.dev/packages/pedantic
+
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  # These fonts are forked from https://github.com/KaTeX/katex-fonts.
+  # Notice asset paths and location of the fonts in the lib directory.
+  # See https://flutter.dev/docs/cookbook/design/package-fonts.
+  fonts:
+    - family: KaTeX AMS
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_AMS-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Caligraphic
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Caligraphic-Regular.ttf
+          weight: 400
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_Caligraphic-Bold.ttf
+          weight: 700
+          style: normal
+    - family: KaTeX Fraktur
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Fraktur-Regular.ttf
+          weight: 400
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_Fraktur-Bold.ttf
+          weight: 700
+          style: normal
+    - family: KaTeX Main
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Main-Regular.ttf
+          weight: 400
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_Main-Bold.ttf
+          weight: 700
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_Main-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: packages/catex/fonts/KaTeX_Main-Italic.ttf
+          weight: 400
+          style: italic
+    - family: KaTeX Math
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Math-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: packages/catex/fonts/KaTeX_Math-Italic.ttf
+          weight: 400
+          style: italic
+    - family: KaTeX SansSerif
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_SansSerif-Regular.ttf
+          weight: 400
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_SansSerif-Bold.ttf
+          weight: 700
+          style: normal
+        - asset: packages/catex/fonts/KaTeX_SansSerif-Italic.ttf
+          weight: 400
+          style: italic
+    - family: KaTeX Script
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Script-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Size1
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Size1-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Size2
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Size2-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Size3
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Size3-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Size4
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Size4-Regular.ttf
+          weight: 400
+          style: normal
+    - family: KaTeX Typewriter
+      fonts:
+        - asset: packages/catex/fonts/KaTeX_Typewriter-Regular.ttf
+          weight: 400
+          style: normal
