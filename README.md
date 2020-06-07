@@ -47,6 +47,11 @@ This package is far from complete in terms of supporting all TeX functionality.
 If you want support for more functions, symbols, macros, etc., we appreciate your contribution!  
 Please refer to the [contribution guide][contributing] to understand how you can easily add functions and more.
 
+To help prioritization of function development, we conducted some research examining how often certain functions appear in some of simpleclub's content. 
+This should give a rough feeling for what is most commonly used. A CSV file with the list of used functions and the frequency of appearance can be found [here][function_frequency].
+
+> Please note that this list may be incomplete or contain typos in the function names.
+
 If you find something that is fundamentally flawed, please propose a better solution - we are open to complete revamps.
 
 [//]: # (todo replace relative paths once published)
@@ -64,3 +69,4 @@ If you find something that is fundamentally flawed, please propose a better solu
 [KaTeX license]: https://github.com/KaTeX/KaTeX/blob/b14197d9c9052d937dc789e1ac492bcdcdde5599/LICENSE
 [creativecreatorormaybenot]: https://github.com/creativecreatorormaybenot
 [simpleclub]: https://github.com/simpleclub
+[function_frequency]: https://github.com/simpleclub/CaTeX/blob/master/function_prioritization.csv
