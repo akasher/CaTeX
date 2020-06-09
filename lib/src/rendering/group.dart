@@ -40,8 +40,9 @@ class RenderGroup extends RenderNode {
               (height - size.height) / 2,
           dyShifted = dy + _subSupAddend(child);
 
-      // Symbols can cause extra spacing and interact with characters in that way.
-      double symbolSpacing = 0;
+      // Symbols can cause extra spacing and
+      // interact with characters in that way.
+      var symbolSpacing = .0;
       if (previousChild != null) {
         symbolSpacing = pixelSpacingFromCharacters(
           previous: previousChild.context.input,
@@ -60,7 +61,8 @@ class RenderGroup extends RenderNode {
         if (CharacterCategory.superscript.matches(child.context.input)) {
           subSupTopOverflow = max(subSupTopOverflow, -dyShifted);
         } else {
-          subSupBottomOverflow = max(subSupBottomOverflow, (dyShifted + size.height) - height);
+          subSupBottomOverflow =
+              max(subSupBottomOverflow, (dyShifted + size.height) - height);
         }
       }
 
@@ -71,7 +73,8 @@ class RenderGroup extends RenderNode {
     // down by that overflow again.
     if (subSupTopOverflow > 0) {
       for (final child in children) {
-        child.positionNode(child.parentData.offset + Offset(0, subSupTopOverflow));
+        child.positionNode(
+            child.parentData.offset + Offset(0, subSupTopOverflow));
       }
     }
 

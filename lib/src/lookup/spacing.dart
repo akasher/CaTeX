@@ -1,5 +1,6 @@
 import 'package:catex/src/lookup/modes.dart';
 import 'package:catex/src/lookup/symbols.dart';
+import 'package:meta/meta.dart';
 
 import 'generated/symbols.g.dart';
 
@@ -8,14 +9,26 @@ import 'generated/symbols.g.dart';
 ///
 /// This function also accepts inputs for [previous] and [current] that are not
 /// single characters. For example, functions are treated as [_Spacing.ord]s.
-double pixelSpacingFromCharacters({String previous, String current, double fontSize}) {
+double pixelSpacingFromCharacters({
+  @required String previous,
+  @required String current,
+  @required double fontSize,
+}) {
   assert(previous != null);
   assert(current != null);
   assert(fontSize != null);
 
-  final previousSpacingType = previous.length != 1 ? _Spacing.ord : symbols[CaTeXMode.math][previous]?.group?.asSpacingType ?? _Spacing.ord,
-      currentSpacingType = current.length != 1 ? _Spacing.ord : symbols[CaTeXMode.math][current]?.group?.asSpacingType ?? _Spacing.ord;
-  return _spacings[previousSpacingType][currentSpacingType]?.inPixels(fontSize) ?? 0;
+  final previousSpacingType = previous.length != 1
+          ? _Spacing.ord
+          : symbols[CaTeXMode.math][previous]?.group?.asSpacingType ??
+              _Spacing.ord,
+      currentSpacingType = current.length != 1
+          ? _Spacing.ord
+          : symbols[CaTeXMode.math][current]?.group?.asSpacingType ??
+              _Spacing.ord;
+  return _spacings[previousSpacingType][currentSpacingType]
+          ?.inPixels(fontSize) ??
+      0;
 }
 
 /// Three types of spacing based on https://www.overleaf.com/learn/latex/Spacing_in_math_mode?nocdn=true.
