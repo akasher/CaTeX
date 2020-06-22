@@ -1,3 +1,7 @@
 ## 0.0.1
 
-* Initial proof of concept.
+* Initial release of the CaTeX package.
+
+## 0.0.0
+
+* Placeholder version.
