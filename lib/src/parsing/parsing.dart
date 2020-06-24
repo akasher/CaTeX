@@ -2,6 +2,7 @@ import 'package:catex/src/lookup/characters.dart';
 import 'package:catex/src/lookup/context.dart';
 import 'package:catex/src/lookup/exception.dart';
 import 'package:catex/src/lookup/functions.dart';
+import 'package:catex/src/lookup/macros.dart';
 import 'package:catex/src/lookup/modes.dart';
 import 'package:catex/src/parsing/character.dart';
 import 'package:catex/src/parsing/empty.dart';
@@ -126,7 +127,7 @@ class Parser {
               _consumeChar();
               // _lookupFunction here is fine because I know for a fact
               // that these functions exist as I put them there (:
-              _addNode(_lookupFunction(_consumeToken()));
+              _addNode(_parseFunctionNode(_consumeToken()));
               _skipSpaces();
               return _parse();
             }
@@ -158,8 +159,16 @@ class Parser {
               _consumeChar();
               return _parse();
             }
-            final token = _consumeToken(), function = _lookupFunction(token);
-            _addNode(function ?? SymbolNode(token));
+            final token = _consumeToken(), macro = macros[token.input];
+
+            if (macro == null) {
+              final function = _parseFunctionNode(token);
+              _addNode(function ?? SymbolNode(token));
+            } else {
+              // Replace the token with the macro.
+              _addNode(Parser._(token.copyWith(input: macro)).parse());
+            }
+
             _skipSpaces();
             return _parse();
           case _Token.controlSymbol:
@@ -255,9 +264,9 @@ class Parser {
     _state = _State.S;
   }
 
-  ParsingNode _lookupFunction(ParsingContext token) => lookupFunction(token);
+  ParsingNode _parseFunctionNode(ParsingContext token) => lookupFunction(token);
 
-  /// Finds and extract group to pass it to a new parser.
+  /// Finds and extracts group to pass it to a new parser.
   ///
   /// This will not always return a [GroupNode] because of the way [_addNode]
   /// is set up. If the group contains only a single token, a
@@ -433,13 +442,18 @@ enum _State {
 /// Context that contains information that is only needed
 /// to be passed down the tree while parsing.
 class ParsingContext {
+  /// Constructs a [ParsingContext] from an [input] string a parsing [mode].
   const ParsingContext(this.input, this.mode)
       : assert(input != null),
         assert(mode != null);
 
+  /// The input in the part of the tree that the context describes.
   final String input;
+
+  /// The mode in the part of the tree that the context represents.
   final CaTeXMode mode;
 
+  /// Returns a new [ParsingContext] with overridden properties.
   ParsingContext copyWith({
     String input,
     CaTeXMode mode,
@@ -460,9 +474,15 @@ class ParsingContext {
   int get hashCode => input.hashCode ^ mode.hashCode;
 }
 
+/// Node for every node in the tree that is created during parsing, controlling
+/// the configuration of the node in the resulting rendering tree.
 abstract class ParsingNode<R extends RenderNode> {
+  /// Constructs a [ParsingNode] given a [context].
   const ParsingNode(this.context) : assert(context != null);
 
+  /// The context for the part of the tree that the node represents.
+  ///
+  /// This context can be altered for children.
   final ParsingContext context;
 
   /// Creates a widget from the parsing node.
@@ -511,6 +531,7 @@ abstract class ParsingNode<R extends RenderNode> {
 /// Do not subclass this node. Instead, subclass [MultiChildNode]
 /// or [SingleChildNode] depending on the number of children.
 abstract class ChildrenNode<R extends RenderNode> extends ParsingNode<R> {
+  /// Constructs a [ChildrenNode] given a [context].
   ChildrenNode(ParsingContext context)
       : _children = [],
         super(context);
@@ -529,8 +550,10 @@ abstract class ChildrenNode<R extends RenderNode> extends ParsingNode<R> {
 ///
 /// If a node only has a single child, subclass [SingleChildNode] instead.
 abstract class MultiChildNode<R extends RenderNode> extends ChildrenNode<R> {
+  /// Constructs a [MultiChildNode] given a [context].
   MultiChildNode(ParsingContext context) : super(context);
 
+  /// Returns the full list of children that a [ChildrenNode] stores.
   List<ParsingNode> get children => _children;
 }
 
@@ -538,8 +561,10 @@ abstract class MultiChildNode<R extends RenderNode> extends ChildrenNode<R> {
 ///
 /// If a node has multiple children, subclass [MultiChildNode] instead.
 abstract class SingleChildNode<R extends RenderNode> extends ChildrenNode<R> {
+  /// Constructs a [SingleChildNode] given a [context].
   SingleChildNode(ParsingContext context) : super(context);
 
+  /// Returns the single child accessible to a [SingleChildNode].
   ParsingNode get child => _children[0];
 
   set child(ParsingNode node) {
@@ -559,5 +584,6 @@ mixin FunctionNode<R extends RenderNode> on ChildrenNode<R> {
 ///
 /// An example for this are symbols.
 abstract class LeafNode<R extends RenderNode> extends ParsingNode<R> {
+  /// Constructs a [LeafNode] given a [context].
   LeafNode(ParsingContext context) : super(context);
 }

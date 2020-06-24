@@ -1,8 +1,9 @@
 ![logo][]
 
-# CaTeX [![](https://img.shields.io/pub/v/catex.svg)](https://pub.dev/packages/catex)
+# CaTeX [![][shield]][pub]
 
-A package that allows to draw TeX equations inline as a widget using only Flutter.
+Flutter package that outputs **TeX** equations (like LaTeX, KaTeX, MathJax, etc.) inline using a 
+widget and *Flutter only*.
 
 The implementation is mainly based on [*The TeXbook* by Donald E. Knuth][TeXbook], 
 [*TeX by Topic* by Victor Eijkhout][TeX by Topic], and the [KaTeX project][KaTeX GitHub].
@@ -12,7 +13,7 @@ The implementation is mainly based on [*The TeXbook* by Donald E. Knuth][TeXbook
 This version is only a proof of concept. For a few supported equations, 
 see the [`example`][example] app.
 
-To get a feel of even what set of *characters* is only supported, see the 
+To get a feel of even what set of *characters* is only supported, see the
 [`Category` enum in `characters.dart`][categories].
 
 ## Usage
@@ -38,7 +39,7 @@ Additionally, some code, e.g. what is used for translating symbols is from KaTeX
 You can find the [license for the main KaTeX repo here][KaTeX license].
 
 The CaTeX open source project was created by [simpleclub][], initially by 
-[creativecreatorormaybenot][] (see the [`LICENSE` file][license]).  
+[creativecreatorormaybenot][] individually (see the [`LICENSE` file][license]).  
 CaTeX itself is an open source project with the aim of providing a way to render TeX
 fast in Flutter. This was needed for the [simpleclub app][simpleclub], hence, the association.
 
@@ -107,7 +108,7 @@ void main() {
 }
 ```
 
-See the [example app](https://github.com/simpleclub/CaTeX/tree/master/example) for more examples.
+See the [example app][example] for more examples.
 
 ## Expanding supported functionality
 
@@ -126,8 +127,10 @@ we are open to complete revamps.
 
 [//]: # (a list of all links used in this document)
 
+[shield]: https://img.shields.io/pub/v/catex.svg
+[pub]: https://pub.dev/packages/catex
 [logo]: https://i.imgur.com/6DvWz3S.png
-[example]: https://github.com/simpleclub/CaTeX/blob/master/example/README.md
+[example]: https://github.com/simpleclub/CaTeX/tree/master/example
 [categories]: https://github.com/simpleclub/CaTeX/blob/master/lib/src/lookup/characters.dart
 [license]: https://github.com/simpleclub/CaTeX/blob/master/LICENSE
 [contributing]: https://github.com/simpleclub/CaTeX/blob/master/CONTRIBUTING.md

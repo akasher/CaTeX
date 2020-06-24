@@ -4,7 +4,16 @@
 /// See *The TeXbook* from page 140 for the different styles.
 /// The actual names are T', S', etc. for the cramped styles, however,
 /// Dart does not allow the prime symbol for variable names.
-enum CaTeXStyle { d, dc, t, tc, s, sc, ss, ssc }
+enum CaTeXStyle {
+  d,
+  dc,
+  t,
+  tc,
+  s,
+  sc,
+  ss,
+  ssc,
+}
 
 // todo(creativecreatorormaybenot): support this.
 class CaTeXStyleData {
@@ -114,3 +123,27 @@ const styles = <CaTeXStyle, CaTeXStyleData>{
   CaTeXStyle.ss: CaTeXStyleData(6, 3, false),
   CaTeXStyle.ssc: CaTeXStyleData(7, 3, true),
 };
+
+/// [CaTeXStyleData] for [CaTeXStyle.d].
+final displayStyle = styles[CaTeXStyle.d];
+
+/// [CaTeXStyleData] for [CaTeXStyle.dc].
+final crampedDisplayStyle = styles[CaTeXStyle.dc];
+
+/// [CaTeXStyleData] for [CaTeXStyle.d].
+final textStyle = styles[CaTeXStyle.t];
+
+/// [CaTeXStyleData] for [CaTeXStyle.tc].
+final crampedTextStyle = styles[CaTeXStyle.tc];
+
+/// [CaTeXStyleData] for [CaTeXStyle.s].
+final scriptStyle = styles[CaTeXStyle.s];
+
+/// [CaTeXStyleData] for [CaTeXStyle.sc].
+final crampedScriptStyle = styles[CaTeXStyle.sc];
+
+/// [CaTeXStyleData] for [CaTeXStyle.ss].
+final scriptScriptStyle = styles[CaTeXStyle.ss];
+
+/// [CaTeXStyleData] for [CaTeXStyle.ssc].
+final crampedScriptScriptStyle = styles[CaTeXStyle.ssc];

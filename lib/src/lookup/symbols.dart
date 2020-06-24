@@ -1,4 +1,9 @@
-enum SymbolFont { main, ams }
+export 'generated/symbols.g.dart';
+
+enum SymbolFont {
+  main,
+  ams,
+}
 
 enum SymbolGroup {
   accent,
@@ -15,7 +20,11 @@ enum SymbolGroup {
 }
 
 class SymbolData {
-  const SymbolData(this.unicode, this.font, this.group);
+  const SymbolData(
+    this.unicode,
+    this.font,
+    this.group,
+  );
 
   final SymbolFont font;
   final SymbolGroup group;
