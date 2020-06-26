@@ -11,7 +11,7 @@ class DemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CaTeX demo',
+      title: 'CaTeX - Fast TeX renderer for Flutter',
       home: Scaffold(
         body: Stack(
           children: [
@@ -177,7 +177,7 @@ class _CaTeXEditorState extends State<_CaTeXEditor> {
   void initState() {
     super.initState();
 
-    _controller = TextEditingController(text: r'\CaTeX')
+    _controller = TextEditingController(text: r'\CaTeX = 42')
       ..addListener(() {
         setState(() {});
       });
