@@ -26,8 +26,8 @@ const RESOURCES = {
 "assets/packages/catex/fonts/KaTeX_Size3-Regular.ttf": "e87212c26bb86c21eb028aba2ac53ec3",
 "assets/packages/catex/fonts/KaTeX_Size4-Regular.ttf": "85554307b465da7eb785fd3ce52ad282",
 "assets/packages/catex/fonts/KaTeX_Typewriter-Regular.ttf": "87f56927f1ba726ce0591955c8b3b42d",
-"index.html": "ec336ea47f69ab53900b08cce4b562aa",
-"/": "ec336ea47f69ab53900b08cce4b562aa",
+"index.html": "289175dce28a6bfa2e525f207bd207a1",
+"/": "289175dce28a6bfa2e525f207bd207a1",
 "main.dart.js": "6f14285476d516040715398a74af8382",
 "manifest.json": "e49552a9887da3b9b51b932e3ad9dbcf"
 };
