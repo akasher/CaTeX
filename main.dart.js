@@ -26296,7 +26296,7 @@ t=H.b([],u.s)
 s=new R.aa(t,u.S)
 s.b=!0
 t.push(new N.Qw(this))
-this.d=new D.mw(new N.dD("\\CaTeX",C.l7,C.aX),s)},
+this.d=new D.mw(new N.dD("\\CaTeX = 42",C.l7,C.aX),s)},
 p:function(){this.d.a0$=null
 this.bm()},
 U:function(a){var t=null,s=A.eS(t,t,t,t,t,t,t,t,t,t,t,32,t,t,t,t,!0,t,t,t,t,t,t)
