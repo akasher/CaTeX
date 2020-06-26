@@ -26277,7 +26277,7 @@ t=M.jj(q,N.a_f(new T.e4(32,32,U.VZ("https://i.imgur.com/B9jYEyK.png"),q),s,new N
 s=new Y.dk(C.p,1,C.Q)
 s=S.nX(new F.bQ(s,s,s,s),q,q,q,q,q,C.ai)
 r=u.t
-return new S.py(new M.qw(T.qR(C.fE,H.b([new T.ji(C.aw,q,q,T.VV(new V.vy(new X.c4(new K.bv(p,p,p,p),C.x),new T.vL(C.K,C.rs,C.kd,C.fX,q,C.oI,q,H.b([new T.fk(C.CQ,new L.r5(q,o,q,C.fu,q,q,q,q),q),T.VV(T.Wv(H.b([n,t,M.jj(q,N.a3R(!1,L.An("API reference",q,q,q,A.eS(q,q,q,q,q,q,q,q,q,q,q,20,q,q,q,q,!0,q,q,q,q,q,q),q),C.aG,q,q,q,q,q,q,q,q,q,q,q,q,q,new N.Hy(),q,q,q,q,q,q),q,q,s,q,q,q,q)],r),C.fX,C.rt,C.kd),q,0.84),T.VO(new T.fk(C.CS,C.M3,q))],r),q),q),0.6,0.8),q),new T.j5(C.pc,q,q,new T.fk(C.CM,L.Yp(new O.kV("\\CaTeX",q),A.eS(q,q,q,q,q,q,q,q,q,q,q,60,q,q,q,q,!0,q,q,q,q,q,q)),q),q),new T.j5(C.Af,q,q,new T.fk(C.CJ,new T.hV(new S.aQ(0,380,0,1/0),U.VZ("https://i.imgur.com/1CoSmA6.png"),q),q),q)],r),C.fq),q),"CaTeX demo",q)}}
+return new S.py(new M.qw(T.qR(C.fE,H.b([new T.ji(C.aw,q,q,T.VV(new V.vy(new X.c4(new K.bv(p,p,p,p),C.x),new T.vL(C.K,C.rs,C.kd,C.fX,q,C.oI,q,H.b([new T.fk(C.CQ,new L.r5(q,o,q,C.fu,q,q,q,q),q),T.VV(T.Wv(H.b([n,t,M.jj(q,N.a3R(!1,L.An("API reference",q,q,q,A.eS(q,q,q,q,q,q,q,q,q,q,q,20,q,q,q,q,!0,q,q,q,q,q,q),q),C.aG,q,q,q,q,q,q,q,q,q,q,q,q,q,new N.Hy(),q,q,q,q,q,q),q,q,s,q,q,q,q)],r),C.fX,C.rt,C.kd),q,0.84),T.VO(new T.fk(C.CS,C.M3,q))],r),q),q),0.6,0.8),q),new T.j5(C.pc,q,q,new T.fk(C.CM,L.Yp(new O.kV("\\CaTeX",q),A.eS(q,q,q,q,q,q,q,q,q,q,q,60,q,q,q,q,!0,q,q,q,q,q,q)),q),q),new T.j5(C.Af,q,q,new T.fk(C.CJ,new T.hV(new S.aQ(0,380,0,1/0),U.VZ("https://i.imgur.com/1CoSmA6.png"),q),q),q)],r),C.fq),q),"CaTeX - Fast TeX renderer for Flutter",q)}}
 N.Hw.prototype={
 $0:function(){T.uP("https://pub.dev/packages/catex")},
 $S:1}
