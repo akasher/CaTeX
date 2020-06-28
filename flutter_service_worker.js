@@ -5,7 +5,7 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "assets/AssetManifest.json": "39e0ffbdadee78298ae4adbc7fe87662",
 "assets/FontManifest.json": "d5eef3f615cda3fb494ba78d661d9bcc",
-"assets/NOTICES": "1e33f7e8ba671f5646bc6512117e0a9d",
+"assets/NOTICES": "3b0321b18829f33071e0a773e2d22b8a",
 "assets/packages/catex/fonts/KaTeX_AMS-Regular.ttf": "657a5353a553777e270827bd1630e467",
 "assets/packages/catex/fonts/KaTeX_Caligraphic-Bold.ttf": "a9c8e437146ef63fcd6fae7cf65ca859",
 "assets/packages/catex/fonts/KaTeX_Caligraphic-Regular.ttf": "7ec92adfa4fe03eb8e9bfb60813df1fa",
@@ -28,7 +28,7 @@ const RESOURCES = {
 "assets/packages/catex/fonts/KaTeX_Typewriter-Regular.ttf": "87f56927f1ba726ce0591955c8b3b42d",
 "index.html": "289175dce28a6bfa2e525f207bd207a1",
 "/": "289175dce28a6bfa2e525f207bd207a1",
-"main.dart.js": "6f14285476d516040715398a74af8382",
+"main.dart.js": "0eddeac7f3ee1af4e10eb211a62cd70e",
 "manifest.json": "e49552a9887da3b9b51b932e3ad9dbcf"
 };
 
