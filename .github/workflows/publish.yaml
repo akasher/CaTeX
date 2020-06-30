@@ -28,6 +28,8 @@ jobs:
         with:
           # Using the dev channel for now as Flutter web is not supported on stable yet.
           channel: 'dev'
+          # Make sure to keep this up-to-date.
+          flutter-version: '1.20.0-2.0.pre'
 
       - name: Build web app
         run: |

@@ -5,9 +5,12 @@ on:
     branches:
       - master
     paths:
-      - '**/lib/**'
-      - '**/pubspec.yaml'
-      - '**/test/**'
+      # Not restricting paths for now as there might be updates to the SDKs which change the
+      # outcome of these actions between different commits, even when there was no package change.
+      - '**'
+#      - '**/lib/**'
+#      - '**/pubspec.yaml'
+#      - '**/test/**'
 
 jobs:
   analyze:
@@ -27,9 +30,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Need to manually maintain the correct Flutter versions here as the subosito Flutter action
+      # does not seem to use the latest versions in the channels.
+      # https://github.com/subosito/flutter-action/issues/50
+      # Always check https://flutter.dev/docs/development/tools/sdk/releases to update these
+      # version numbers accordingly.
       - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'stable'
         with:
           channel: ${{ matrix.channel }}
+          flutter-version: '1.17.4'
+      - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'beta'
+        with:
+          channel: ${{ matrix.channel }}
+          flutter-version: '1.19.0-4.2.pre'
+      - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'dev'
+        with:
+          channel: ${{ matrix.channel }}
+          flutter-version: '1.20.0-2.0.pre'
 
       - name: Setup projects
         run: |
@@ -45,15 +65,26 @@ jobs:
 
           cd ..
 
-      - name: Check format (flutter format)
-        if: matrix.channel != 'dev'
-        run: flutter format . --set-exit-if-changed --fix
+      - name: Check package and example format (flutter format)
+        if: matrix.channel == 'stable'
+        run: flutter format lib gen test example --set-exit-if-changed --fix
 
-      - name: Check format (dart format)
+      - name: Check package and example format (dart format)
+        if: matrix.channel != 'stable'
+        run: dart format lib gen test example
+
+      - name: Check demo format
+        # The demo project needs separate format checking as it only runs on dev.
         if: matrix.channel == 'dev'
-        run: dart format .
+        run: dart format demo
 
-      - run: flutter analyze
+      - name: Analyze package and example
+        run: flutter analyze --no-current-package lib gen test example
+
+      - name: Analyze demo
+        # The demo project needs a separate analysis as it only runs on dev.
+        if: matrix.channel == 'dev'
+        run: flutter analyze --no-current-package demo
 
   test:
     timeout-minutes: 6
@@ -72,9 +103,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: subosito/flutter-action@v1.2.0
+      # Need to manually maintain the correct Flutter versions here as the subosito Flutter action
+      # does not seem to use the latest versions in the channels.
+      # https://github.com/subosito/flutter-action/issues/50
+      # Always check https://flutter.dev/docs/development/tools/sdk/releases to update these
+      # version numbers accordingly.
+      - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'stable'
         with:
           channel: ${{ matrix.channel }}
+          flutter-version: '1.17.4'
+      - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'beta'
+        with:
+          channel: ${{ matrix.channel }}
+          flutter-version: '1.19.0-4.2.pre'
+      - uses: subosito/flutter-action@v1.3.2
+        if: matrix.channel == 'dev'
+        with:
+          channel: ${{ matrix.channel }}
+          flutter-version: '1.20.0-2.0.pre'
 
       - name: Setup project
         run: flutter pub get
