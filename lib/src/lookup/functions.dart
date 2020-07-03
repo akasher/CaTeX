@@ -230,7 +230,7 @@ FunctionNode lookupFunction(ParsingContext context) {
   }
 
   switch (function) {
-    case CateXFunction.hat:
+    case CaTeXFunction.hat:
       return HatNode(context);
     case CaTeXFunction.frac:
       return FracNode(context);
