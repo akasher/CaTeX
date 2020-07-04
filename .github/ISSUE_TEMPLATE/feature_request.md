@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-### Description
+## Feature description
 
-A clear and concise description of your new feature.
+*A clear and concise description of your new feature.*
 
 ### Existing implementations
 
-Links to existing implementations of this feature in other TeX projects.
+*Links to existing implementations of this feature in other TeX projects.*
