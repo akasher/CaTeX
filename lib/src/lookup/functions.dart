@@ -27,7 +27,7 @@ import 'package:flutter/foundation.dart';
 enum CaTeXFunction {
   /// `\hat{}` applies hat to the content of bracket
   hat,
-  
+
   /// `\frac{}{}` displays a fraction.
   frac,
 
