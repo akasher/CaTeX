@@ -5,6 +5,7 @@ import 'package:catex/src/parsing/functions/boxed.dart';
 import 'package:catex/src/parsing/functions/color_box.dart';
 import 'package:catex/src/parsing/functions/font.dart';
 import 'package:catex/src/parsing/functions/frac.dart';
+import 'package:catex/src/parsing/functions/hat.dart';
 import 'package:catex/src/parsing/functions/kern.dart';
 import 'package:catex/src/parsing/functions/raise_box.dart';
 import 'package:catex/src/parsing/functions/sqrt.dart';
