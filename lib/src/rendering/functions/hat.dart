@@ -23,7 +23,6 @@ class RenderHat extends RenderNode with SingleChildRenderNodeMixin {
         hatSize = _hatPainter.size,
         height = max(hatSize.height, childSize.height);
 
-    //child.positionNode(Offset(0, height - childSize.height));
     child.positionNode(Offset(0, height - childSize.height));
     renderSize = Size(childSize.width, height);
   }
@@ -31,6 +30,6 @@ class RenderHat extends RenderNode with SingleChildRenderNodeMixin {
   @override
   void render(Canvas canvas) {
     paintChildNode(child);
-    _hatPainter.paint(canvas, Offset.zero);
+    _hatPainter.paint(canvas, Offset(child.size.width/4,0));
   }
 }
